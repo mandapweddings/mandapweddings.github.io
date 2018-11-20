@@ -14,7 +14,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Event Planner Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+		function hideURLbar(){ window.scrollTo(0,1); } 
+	
+	function postToGoogle() {
+           if($("#contactForm").valid()){
+
+            var field1 = $('#nameField').val();
+            var field2 = $('#emailField').val();
+            var field3 = $('#telephoneField').val();
+            var field4 = $('#messageField').val();  
+          $.ajax({
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSeXKTLdLohqL3Bi5eyO3kRdr5uSE09F-OkLSYXs2fGpIZtk0g/formResponse",
+            data: {"entry.563892907": field1,
+"entry.470884627":field2,
+"entry.97911240":field3,
+"entry.599514791":field4},
+            type: "POST",
+            dataType: "xml",
+            statusCode: {
+                0: function() {
+                    //Success message 
+
+           $("#myModal").modal('show');
+           $('#contactForm').trigger("reset");
+
+
+                },
+                200: function() {
+                    
+                }
+            }
+        });
+}
+        }
+
+
+$("#ss").click(function(){
+postToGoogle();
+});
+});
+	
+	</script>
 <!-- //meta tags -->
 <!-- custom Theme files -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -371,13 +411,34 @@ SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 			</div> 
 			<div class="col-md-7 contact-left">
 				<h3>Contact Form</h3>
-				<form action="#" method="post">
-					<input type="text" name="Name" placeholder="Name" required="">
-					<input type="text" name="Email" placeholder="Email" required="">
-					<input type="text" name="Telephone" placeholder="Telephone" required="">
-					<textarea name="Message" placeholder="Message" required=""></textarea>
-					<input type="submit" value="Submit" >
+				<form action="https://docs.google.com/forms/d/e/1FAIpQLSeXKTLdLohqL3Bi5eyO3kRdr5uSE09F-OkLSYXs2fGpIZtk0g/formResponse" target="_self" method="post" id="contactForm">
+					<input type="text" name="entry.563892907" id="nameField" placeholder="Name" required="">
+					<input type="text" name="entry.470884627" id="emailField" placeholder="Email" required="">
+					<input type="text" name="entry.97911240" id="telephoneField" placeholder="Telephone" required="">
+					<textarea name="entry.599514791" placeholder="Message" id="messageField" required=""></textarea>
+					<input type="submit" id="ss" value="Submit" >
 				</form>
+				
+				<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:aliceblue;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="margin-left: 40%;">SUCCESS</h4>
+        </div>
+        <div class="modal-body">
+          <p>Thanks for providing your response our representative will get back to you shortly.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 			</div>
 			<div class="col-md-5 contact-left">
 				<h3>Address</h3>
