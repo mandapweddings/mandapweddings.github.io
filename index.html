@@ -43,7 +43,7 @@ SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 });
 	function postToGoogle() {
           
-
+ if($("#contactForm").valid()){
             var field1 = $('#nameField').val();
             var field2 = $('#emailField').val();
             var field3 = $('#telephoneField').val();
@@ -70,6 +70,7 @@ SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, Son
                 }
             
         });
+ }
 }
         
 
