@@ -8,14 +8,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 <head>
 <title>The MANDAP</title>
+	<style>
+.error{
+color:orangered;
+}
+</style>
 <!-- meta tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Event Planner Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
-	
+ 
+	 $(document).ready(function(){
+ $("#myModal").modal('hide');
+  $("#contactForm").validate({
+   rules: {
+    "entry.563892907": {required:true},
+    "entry.470884627": {required:true,email:true},
+    "entry.97911240":{required:true}
+
+   },
+   messages: {
+     "entry.563892907": "Please specify your name",
+     "entry.470884627":"Please provide valid email Id",
+     "entry.97911240":"Please provide your Contact Number"
+
+
+   }
+});
 	function postToGoogle() {
            if($("#contactForm").valid()){
 
@@ -412,11 +435,11 @@ postToGoogle();
 			<div class="col-md-7 contact-left">
 				<h3>Contact Form</h3>
 				<form action="https://docs.google.com/forms/d/e/1FAIpQLSeXKTLdLohqL3Bi5eyO3kRdr5uSE09F-OkLSYXs2fGpIZtk0g/formResponse" target="_self" method="post" id="contactForm">
-					<input type="text" name="entry.563892907" id="nameField" placeholder="Name" required="">
-					<input type="text" name="entry.470884627" id="emailField" placeholder="Email" required="">
-					<input type="text" name="entry.97911240" id="telephoneField" placeholder="Telephone" required="">
-					<textarea name="entry.599514791" placeholder="Message" id="messageField" required=""></textarea>
-					<input type="submit" id="ss" value="Submit" >
+					<input type="text" name="entry.563892907" id="nameField" placeholder="Name"><br>
+					<input type="text" name="entry.470884627" id="emailField" placeholder="Email"><br>
+					<input type="text" name="entry.97911240" id="telephoneField" placeholder="Telephone"><br>
+					<textarea name="entry.599514791" placeholder="Message" id="messageField"></textarea><br>
+					<input type="button" id="ss" value="Submit"  >
 				</form>
 				
 				<div class="modal fade" id="myModal" role="dialog">
