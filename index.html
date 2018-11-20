@@ -24,25 +24,25 @@ SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 		function hideURLbar(){ window.scrollTo(0,1); } 
 	</script>
 	<script>
-	 $(document).ready(function(){
- $("#myModal").modal('hide');
-  $("#contactForm").validate({
-   rules: {
-    "entry.563892907": {required:true},
-    "entry.470884627": {required:true,email:true},
-    "entry.97911240":{required:true}
+// 	 $(document).ready(function(){
+//  $("#myModal").modal('hide');
+//   $("#contactForm").validate({
+//    rules: {
+//     "entry.563892907": {required:true},
+//     "entry.470884627": {required:true,email:true},
+//     "entry.97911240":{required:true}
 
-   },
-   messages: {
-     "entry.563892907": "Please specify your name",
-     "entry.470884627":"Please provide valid email Id",
-     "entry.97911240":"Please provide your Contact Number"
+//    },
+//    messages: {
+//      "entry.563892907": "Please specify your name",
+//      "entry.470884627":"Please provide valid email Id",
+//      "entry.97911240":"Please provide your Contact Number"
 
 
-   }
-});
+//    }
+// });
 	function postToGoogle() {
-           if($("#contactForm").valid()){
+          
 
             var field1 = $('#nameField').val();
             var field2 = $('#emailField').val();
@@ -68,7 +68,7 @@ SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, Son
                 200: function() {
                     
                 }
-            }
+            
         });
 }
         }
